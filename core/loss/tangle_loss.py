@@ -10,7 +10,7 @@ def apply_random_mask(patch_embeddings, percentage):
     mask_count = int(percentage * dim_size)
     mask = torch.cat([torch.zeros(mask_count), torch.ones(dim_size - mask_count)])
     mask = mask[torch.randperm(dim_size)].unsqueeze(0).unsqueeze(-1)
-    return patch_embeddings*mask_count
+    return patch_embeddings*mask
     
 
 def init_intra_wsi_loss_function(config):
